@@ -139,8 +139,8 @@ public final class Constants {
         public static final double kMaxAngularSpeedRadiansPerSecondSquared = Math.PI;
     //X = forward, Y = to the left for swerve??
         public static final double kPXController = 8; //1 default
-        public static final double kPYController = 8; //1
-        public static final double kPThetaController = 1; //1 default
+        public static final double kPYController = 12; //1
+        public static final double kPThetaController = 8; //1 default
     
         /* Constraint for the motion profilied robot angle controller */
         public static final TrapezoidProfile.Constraints kThetaControllerConstraints =
