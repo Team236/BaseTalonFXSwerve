@@ -18,12 +18,12 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.SwerveControllerCommand;
 
 public class exampleAuto extends SequentialCommandGroup {
-    public exampleAuto(Swerve s_Swerve){
+    public exampleAuto(Swerve s_Swerve, boolean reversed){ // when called in container pass true or false
         TrajectoryConfig config =
             new TrajectoryConfig(
                     Constants.AutoConstants.kMaxSpeedMetersPerSecond,
                     Constants.AutoConstants.kMaxAccelerationMetersPerSecondSquared)
-                .setKinematics(Constants.Swerve.swerveKinematics);
+                .setKinematics(Constants.Swerve.swerveKinematics).setReversed(reversed);
 
         // An example trajectory to follow.  All units in meters.
         Trajectory exampleTrajectory =
@@ -31,9 +31,9 @@ public class exampleAuto extends SequentialCommandGroup {
                 // Start at the origin facing the +X direction
                 new Pose2d(0, 0, new Rotation2d(0)),
                 // Pass through these two interior waypoints, making an 's' curve path
-                List.of(new Translation2d(1, 0 ), new Translation2d(1, 1)),
+                List.of(new Translation2d(1, 0 ), new Translation2d(2, 0)),
                 // End 3 meters straight ahead of where we started, facing forward
-                new Pose2d(2, 1, new Rotation2d(Math.PI)),
+                new Pose2d(3, 0, new Rotation2d(0)),
                 config);
 
         var thetaController =
